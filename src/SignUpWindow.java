@@ -5,13 +5,13 @@ public class SignUpWindow extends JFrame {
 
     public SignUpWindow() {
         setTitle("Sign Up - CineRush");
-        setSize(440, 350); // Updated window size
+        setSize(440, 350); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
 
         JLabel title = new JLabel("Create Your CineRush Account");
-        title.setBounds(90, 20, 250, 25); // Updated title
+        title.setBounds(90, 20, 250, 25); 
         title.setFont(new Font("Arial", Font.BOLD, 16));
         add(title);
 

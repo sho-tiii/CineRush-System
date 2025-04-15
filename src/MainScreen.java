@@ -14,12 +14,12 @@ public class MainScreen {
 
         // User Button
         JButton userButton = new JButton("I AM USER");
-        userButton.setBounds(130, 160, 150, 40);  // Adjust position to avoid overlap
+        userButton.setBounds(130, 160, 150, 40);  
         frame.add(userButton);
 
         // Action listener for adminButton
         adminButton.addActionListener(e -> {
-            new AdminLogin();  // Open Admin Login form
+            new AdminLogin();  
             frame.setVisible(false);  // Close the main screen
         });
 

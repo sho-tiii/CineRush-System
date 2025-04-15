@@ -8,7 +8,7 @@ public class UserRegistration {
             String sql = "INSERT INTO users (username, password) VALUES (?, ?)";
             PreparedStatement pst = conn.prepareStatement(sql);
             pst.setString(1, username);
-            pst.setString(2, password); // store password (later, add hashing!)
+            pst.setString(2, password); 
 
             pst.executeUpdate();
             return true;

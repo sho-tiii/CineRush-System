@@ -4,7 +4,7 @@ import java.awt.*;
 public class ReceiptDialog extends JDialog {
 
     public ReceiptDialog(JFrame parent, String customerName, String selectedSeats, int totalAmount, int payment, int change) {
-        super(parent, "Receipt", true); // true for modal dialog
+        super(parent, "Receipt", true); 
         setSize(300, 250);
         setLocationRelativeTo(parent);
 

@@ -16,7 +16,6 @@ public class DashboardWindow extends JFrame {
         label.setBounds(130, 20, 150, 25);
         add(label);
 
-        // Load cinemas from database
         ArrayList<Cinema> cinemas = fetchCinemasFromDatabase();
 
         int y = 60;
@@ -32,13 +31,12 @@ public class DashboardWindow extends JFrame {
         setVisible(true);
     }
 
-    // Method to open seat selection
+  
     private void openSeatSelectionWindow(String cinema, String movie) {
         this.dispose();
         new SeatSelectionWindow(cinema, movie);
     }
 
-    // Method to fetch cinema data from DB
     private ArrayList<Cinema> fetchCinemasFromDatabase() {
         ArrayList<Cinema> cinemaList = new ArrayList<>();
         Connection conn = DatabaseConnection.connect();
@@ -62,7 +60,6 @@ public class DashboardWindow extends JFrame {
         return cinemaList;
     }
 
-    // Helper class to hold cinema info
     class Cinema {
         String name;
         String movie;

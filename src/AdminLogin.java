@@ -27,8 +27,8 @@ public class AdminLogin {
         loginButton.setBounds(100, 110, 80, 25);
         loginButton.addActionListener(e -> {
             if (usernameField.getText().equals("admin") && new String(passwordField.getPassword()).equals("1234")) {
-                new AdminDashboard(); // Open Dashboard on successful login
-                frame.setVisible(false); // Close login form
+                new AdminDashboard(); 
+                frame.setVisible(false); 
             } else {
                 JOptionPane.showMessageDialog(frame, "Invalid credentials. Please try again.");
             }

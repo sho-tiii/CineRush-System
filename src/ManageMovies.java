@@ -84,7 +84,7 @@ public class ManageMovies extends JFrame {
             addMovieToDatabase(selectedCinema + 1, title);
             showMessage("Movie added!");
             refreshMovieList();
-            selectCinema(selectedCinema); // update label
+            selectCinema(selectedCinema); 
         } else {
             showMessage("Please enter a movie title.");
         }
@@ -184,6 +184,6 @@ public class ManageMovies extends JFrame {
     }
 
     public static void main(String[] args) {
-        new ManageMovies(); // For testing only
+        new ManageMovies(); 
     }
 }

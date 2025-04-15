@@ -12,7 +12,7 @@ public class UserLogin {
             pst.setString(2, password);
 
             ResultSet rs = pst.executeQuery();
-            return rs.next(); // returns true if match is found
+            return rs.next(); 
         } catch (Exception e) {
             e.printStackTrace();
             return false;
