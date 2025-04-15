@@ -20,7 +20,12 @@ public class MainScreen {
         // Action listener for adminButton
         adminButton.addActionListener(e -> {
             new AdminLogin();  
-            frame.setVisible(false);  // Close the main screen
+            frame.setVisible(false);  
+        });
+        
+        userButton.addActionListener(e -> {
+            new LoginWindow();  
+            frame.setVisible(false);  
         });
 
         frame.setVisible(true);
