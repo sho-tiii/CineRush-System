@@ -105,7 +105,7 @@ public class MovieScheduleAdminPanel {
 
         frame.add(panel);
         frame.setVisible(true);
-        cinemaBox.setSelectedIndex(0); // Load first cinema on start
+        cinemaBox.setSelectedIndex(0); 
     }
 
     private static void loadCinemaData(int cinemaId, JTextField titleField, JTextField priceField,
