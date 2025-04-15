@@ -15,7 +15,7 @@ public class AdminDashboard {
 
         manageMoviesButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                new ManageMovies(); 
+                MovieScheduleAdminPanel.main(null);  // ✅ Call the main method
                 frame.dispose(); 
             }
         });
@@ -32,7 +32,6 @@ public class AdminDashboard {
         setPricesButton.setBounds(130, 180, 150, 40);
         frame.add(setPricesButton);
 
-        
         JButton changePasswordButton = new JButton("Change Password");
         changePasswordButton.setBounds(130, 230, 150, 40);
         frame.add(changePasswordButton);
@@ -45,7 +44,6 @@ public class AdminDashboard {
         logoutButton.setBounds(130, 330, 150, 40); 
         frame.add(logoutButton);
 
-        
         logoutButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new MainScreen(); 
@@ -53,6 +51,7 @@ public class AdminDashboard {
             }
         });
 
+        frame.setLocationRelativeTo(null); // ✅ Center the window
         frame.setVisible(true);
     }
 
