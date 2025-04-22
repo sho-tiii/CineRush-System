@@ -38,7 +38,6 @@ public class SeatSelectionWindow extends JFrame {
         setLayout(new BorderLayout());
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/cinerush_logo.png")));
 
-
         // Header
         JLabel headerLabel = new JLabel("CineRush", SwingConstants.CENTER);
         headerLabel.setFont(new Font("SansSerif", Font.BOLD, 28));
@@ -260,8 +259,6 @@ public class SeatSelectionWindow extends JFrame {
             int change = payment - total;
             changeLabel.setText("₱" + change);
             saveBookingToDatabase(name, cinema, getSelectedSeatsString(), total, payment, change);
-            updateSeatAvailabilityInDatabase();
-            new ReceiptDialog(this, name, getSelectedSeatsString(), total, payment, change, cinema, movie, selectedSchedule);
             JOptionPane.showMessageDialog(this, "Transaction successful!\nThank you, " + name + "!");
             dispose();
         } catch (NumberFormatException e) {
@@ -287,19 +284,7 @@ public class SeatSelectionWindow extends JFrame {
         }
     }
 
-    private void updateSeatAvailabilityInDatabase() {
-        try (Connection conn = DatabaseConnection.connect()) {
-            String sql = "UPDATE seats_availability SET available = false WHERE seat_id = ?";
-            PreparedStatement pst = conn.prepareStatement(sql);
-            for (JButton seatBtn : selectedSeats) {
-                pst.setString(1, seatBtn.getText());
-                pst.executeUpdate();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            JOptionPane.showMessageDialog(this, "Error updating seat availability.");
-        }
-    }
+    
 
     private String getSelectedSeatsString() {
         StringBuilder seats = new StringBuilder();
@@ -307,6 +292,19 @@ public class SeatSelectionWindow extends JFrame {
             seats.append(btn.getText()).append(" ");
         }
         return seats.toString().trim();
+    }
+
+    // ✅ ADDED: Refresh and initialize seat grid
+    public void refreshSeatGrid() {
+        initSeatGrid();
+        updateSeatAvailability();
+    }
+
+    private void initSeatGrid() {
+        gridPanel.removeAll();
+        setupSeatButtons(gridPanel);
+        gridPanel.revalidate();
+        gridPanel.repaint();
     }
 
     public static void main(String[] args) {

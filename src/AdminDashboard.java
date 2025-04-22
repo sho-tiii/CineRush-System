@@ -47,10 +47,10 @@ public class AdminDashboard extends JFrame {
         });
 
         // New button to manage seats
-        JButton manageSeatsButton = createStyledButton("Manage Cinemas", 50, 290);
+        JButton manageSeatsButton = createStyledButton("Manage Seats", 50, 290);
         add(manageSeatsButton);
         manageSeatsButton.addActionListener(e -> {
-            new ManageCinema();  // Open new panel for managing seats
+            new ManageSeatsWindow();  // Open new panel for managing seats
             dispose();  // Close current window
         });
 
