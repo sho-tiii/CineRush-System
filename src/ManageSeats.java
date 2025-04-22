@@ -132,9 +132,9 @@ public class ManageSeats extends JFrame {
             pst.setString(1, "Admin");
             pst.setString(2, selectedCinema);
             pst.setString(3, seat);
-            pst.setInt(4, 0); // no price
-            pst.setInt(5, 0); // no payment
-            pst.setInt(6, 0); // no change
+            pst.setInt(4, 0); 
+            pst.setInt(5, 0); 
+            pst.setInt(6, 0); 
             pst.setString(7, selectedSchedule);
             pst.executeUpdate();
             pst.close();

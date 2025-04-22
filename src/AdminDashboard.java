@@ -3,17 +3,17 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class AdminDashboard extends JFrame {
-    private final Color bgColor = new Color(0x1A1A1A); // Black background
-    private final Color textWhite = new Color(0xF9FAFB); // White text
-    private final Color accentRed = new Color(0xE11D48); // Red accent color
-    private final Color buttonRed = new Color(0xB91C2B); // Darker red for buttons
+    private final Color bgColor = new Color(0x1A1A1A);
+    private final Color textWhite = new Color(0xF9FAFB);
+    private final Color accentRed = new Color(0xE11D48); 
+    private final Color buttonRed = new Color(0xB91C2B);
 
     private final Font headerFont = new Font("Segoe UI", Font.PLAIN, 28);
     private final Font buttonFont = new Font("Segoe UI", Font.PLAIN, 15);
 
     public AdminDashboard() {
         setTitle("CineRush - Admin Dashboard");
-        setSize(350, 500); // Adjusted size to accommodate new button
+        setSize(350, 500); 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -35,30 +35,30 @@ public class AdminDashboard extends JFrame {
         JButton manageMoviesButton = createStyledButton("Manage Movies", 50, 150);
         add(manageMoviesButton);
         manageMoviesButton.addActionListener(e -> {
-            new MovieScheduleAdminPanel();  // Open new panel for managing movies
-            dispose();  // Close current window
+            new MovieScheduleAdminPanel();  
+            dispose();  
         });
 
         JButton transactionsButton = createStyledButton("View Transactions", 50, 220);
         add(transactionsButton);
         transactionsButton.addActionListener(e -> {
-            new TransactionHistoryPanel();  // Open transaction history panel
+            new TransactionHistoryPanel();  
             dispose();
         });
 
-        // New button to manage seats
+       
         JButton manageSeatsButton = createStyledButton("Manage Seats", 50, 290);
         add(manageSeatsButton);
         manageSeatsButton.addActionListener(e -> {
-            new ManageSeatsWindow();  // Open new panel for managing seats
-            dispose();  // Close current window
+            new ManageSeatsWindow();  
+            dispose();  
         });
 
-        JButton logoutButton = createStyledButton("Logout", 50, 360);  // Adjusted position for logout button
+        JButton logoutButton = createStyledButton("Logout", 50, 360); 
         add(logoutButton);
         logoutButton.addActionListener(e -> {
-            // Dummy placeholder for actual login window
-            JOptionPane.showMessageDialog(this, "Back to Login Window");
+          
+            new AdminLogin();
             dispose();
         });
 
@@ -78,11 +78,11 @@ public class AdminDashboard extends JFrame {
         button.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                button.setBackground(accentRed); // Hover effect to lighter red
+                button.setBackground(accentRed); 
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                button.setBackground(buttonRed); // Revert back to darker red
+                button.setBackground(buttonRed); 
             }
         });
 

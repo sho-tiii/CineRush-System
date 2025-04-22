@@ -7,10 +7,10 @@ import java.sql.*;
 public class TransactionHistoryPanel extends JFrame {
 
     // Color scheme
-    private final Color bgColor = new Color(0x1F1F1F); // Blackish background
+    private final Color bgColor = new Color(0x1F1F1F);
     private final Color textWhite = new Color(0xF9FAFB);
-    private final Color accentRed = new Color(0x991B1B); // Red accent
-    private final Color panelBg = new Color(0xE11D48); // Button red
+    private final Color accentRed = new Color(0x991B1B); 
+    private final Color panelBg = new Color(0xE11D48);
 
     private final Font headerFont = new Font("Segoe UI", Font.PLAIN, 28);
     private final Font buttonFont = new Font("Segoe UI", Font.PLAIN, 15);
@@ -56,7 +56,7 @@ public class TransactionHistoryPanel extends JFrame {
         }, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
-                return false; // Make table fully non-editable
+                return false; 
             }
         };
 
@@ -83,15 +83,15 @@ public class TransactionHistoryPanel extends JFrame {
 
         // Adjust column widths for better visibility
         TableColumnModel columnModel = table.getColumnModel();
-        columnModel.getColumn(0).setPreferredWidth(30);   // ID
-        columnModel.getColumn(1).setPreferredWidth(100);  // Customer
-        columnModel.getColumn(2).setPreferredWidth(80);   // Cinema
-        columnModel.getColumn(3).setPreferredWidth(100);  // Seats
-        columnModel.getColumn(4).setPreferredWidth(60);   // Price
-        columnModel.getColumn(5).setPreferredWidth(70);   // Payment
-        columnModel.getColumn(6).setPreferredWidth(70);   // Change
-        columnModel.getColumn(7).setPreferredWidth(150);  // Time - widened
-        columnModel.getColumn(8).setPreferredWidth(100);  // Schedule
+        columnModel.getColumn(0).setPreferredWidth(30);   
+        columnModel.getColumn(1).setPreferredWidth(100);  
+        columnModel.getColumn(2).setPreferredWidth(80); 
+        columnModel.getColumn(3).setPreferredWidth(100);  
+        columnModel.getColumn(4).setPreferredWidth(60); 
+        columnModel.getColumn(5).setPreferredWidth(70); 
+        columnModel.getColumn(6).setPreferredWidth(70);  
+        columnModel.getColumn(7).setPreferredWidth(150);  
+        columnModel.getColumn(8).setPreferredWidth(100);  
 
         // Scroll pane
         JScrollPane scrollPane = new JScrollPane(table);

@@ -4,15 +4,15 @@ import java.awt.event.*;
 
 public class LoginWindow extends JFrame {
     // Colors (Red & Black theme)
-    private Color bgColor = new Color(0x121212);          // Very dark background
-    private Color primaryRed = new Color(0xD32F2F);       // Strong red
-    private Color darkRed = new Color(0x8B0000);          // Dark red for left panel
-    private Color textWhite = new Color(0xF9FAFB);        // Off-white for text
-    private Color lightGray = new Color(0xB0B0B0);        // Light gray for labels
-    private Color panelBg = new Color(0x1E1E1E);          // Right panel background
-    private Color fieldBg = new Color(0x2C2C2C);          // Input field background
-    private Color borderAccent = new Color(0xFF5252);     // Border/hover accent
-    private Color cardBg = new Color(0x1A1A1A);           // Card background
+    private Color bgColor = new Color(0x121212);          
+    private Color primaryRed = new Color(0xD32F2F);       
+    private Color darkRed = new Color(0x8B0000);          
+    private Color textWhite = new Color(0xF9FAFB);        
+    private Color lightGray = new Color(0xB0B0B0);        
+    private Color panelBg = new Color(0x1E1E1E);          
+    private Color fieldBg = new Color(0x2C2C2C);         
+    private Color borderAccent = new Color(0xFF5252);     
+    private Color cardBg = new Color(0x1A1A1A);          
 
     // Fonts
     private Font headerFont = new Font("Segoe UI Light", Font.PLAIN, 28);
@@ -225,7 +225,7 @@ public class LoginWindow extends JFrame {
         adminLabel.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
                 new AdminLogin().setVisible(true);
-                dispose(); // close the LoginWindow
+                dispose(); 
             }
 
             public void mouseEntered(MouseEvent e) {

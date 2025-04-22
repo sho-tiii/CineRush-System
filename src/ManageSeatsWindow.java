@@ -16,18 +16,18 @@ public class ManageSeatsWindow extends JFrame {
     private JPanel seatVisualizationPanel;
     private String selectedCinema = "Cinema 1";
     private String selectedSchedule = "10:00 AM";
-    private JButton resetSeatsButton;
+    private JButton deleteButton;
     private JButton refreshButton;
     private Map<String, JButton> seatButtons = new HashMap<>();
     
     // Colors
-    private final Color redAccent = new Color(198, 40, 40);     // Red
-    private final Color softBlack = new Color(60, 60, 60);       // Background
-    private final Color lighterBlack = new Color(42, 42, 42);    // Panel
+    private final Color redAccent = new Color(198, 40, 40);     
+    private final Color softBlack = new Color(60, 60, 60);       
+    private final Color lighterBlack = new Color(42, 42, 42);   
     private final Color textWhite = Color.WHITE;
     private final Color availableSeatColor = lighterBlack;
     private final Color takenSeatColor = Color.GRAY;
-    private final Color selectedBookingColor = new Color(70, 130, 180); // Steel blue
+    private final Color selectedBookingColor = new Color(70, 130, 180); 
 
     public ManageSeatsWindow() {
         setTitle("CineRush - Manage Seats");
@@ -139,11 +139,7 @@ public class ManageSeatsWindow extends JFrame {
         JPanel actionPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 10));
         actionPanel.setBackground(softBlack);
         
-        resetSeatsButton = new JButton("Reset Seats");
-        styleButton(resetSeatsButton, redAccent, textWhite);
-        resetSeatsButton.addActionListener(e -> resetSelectedBookingSeats());
-        
-        JButton deleteButton = new JButton("Delete Booking");
+        deleteButton = new JButton("Reset Seats");
         styleButton(deleteButton, redAccent, textWhite);
         deleteButton.addActionListener(e -> deleteSelectedBooking());
         
@@ -154,7 +150,6 @@ public class ManageSeatsWindow extends JFrame {
             new AdminDashboard();
         });
         
-        actionPanel.add(resetSeatsButton);
         actionPanel.add(deleteButton);
         actionPanel.add(backButton);
         
@@ -356,46 +351,6 @@ public class ManageSeatsWindow extends JFrame {
         }
     }
     
-    private void resetSelectedBookingSeats() {
-        int selectedRow = bookingsTable.getSelectedRow();
-        if (selectedRow == -1) {
-            JOptionPane.showMessageDialog(this, "Please select a booking to reset seats");
-            return;
-        }
-        
-        int bookingId = (int) tableModel.getValueAt(selectedRow, 0);
-        String bookingSeats = (String) tableModel.getValueAt(selectedRow, 3);
-        
-        int confirm = JOptionPane.showConfirmDialog(
-            this,
-            "Are you sure you want to reset the seats for booking #" + bookingId + "?\n" +
-            "This will make the following seats available again: " + bookingSeats,
-            "Confirm Reset Seats",
-            JOptionPane.YES_NO_OPTION
-        );
-        
-        if (confirm == JOptionPane.YES_OPTION) {
-            try (Connection conn = DatabaseConnection.connect()) {
-                String sql = "DELETE FROM bookings WHERE id = ?";
-                PreparedStatement pst = conn.prepareStatement(sql);
-                pst.setInt(1, bookingId);
-                int affected = pst.executeUpdate();
-                
-                if (affected > 0) {
-                    JOptionPane.showMessageDialog(this, "Seats have been reset successfully and are now available");
-                    refreshBookingsTable();
-                    updateSeatVisualization();
-                } else {
-                    JOptionPane.showMessageDialog(this, "Failed to reset seats");
-                }
-                
-            } catch (SQLException e) {
-                e.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Error resetting seats: " + e.getMessage());
-            }
-        }
-    }
-    
     private void deleteSelectedBooking() {
         int selectedRow = bookingsTable.getSelectedRow();
         if (selectedRow == -1) {
@@ -407,7 +362,7 @@ public class ManageSeatsWindow extends JFrame {
         
         int confirm = JOptionPane.showConfirmDialog(
             this,
-            "Are you sure you want to delete booking #" + bookingId + "?",
+            "Are you sure you want to reset booking #" + bookingId + "?",
             "Confirm Deletion",
             JOptionPane.YES_NO_OPTION
         );

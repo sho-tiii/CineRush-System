@@ -13,7 +13,7 @@ public class AdminLogin extends JFrame {
     private final Color labelGray = new Color(0xD1D5DB);     // Label text gray
 
     // Fonts
-    private final Font headerFont = new Font("Segoe UI", Font.BOLD, 28);
+    private final Font headerFont = new Font("Segoe UI", Font.PLAIN, 28);
     private final Font labelFont = new Font("Segoe UI", Font.PLAIN, 12);
     private final Font inputFont = new Font("Segoe UI", Font.PLAIN, 14);
     private final Font buttonFont = new Font("Segoe UI", Font.PLAIN, 15);

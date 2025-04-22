@@ -23,9 +23,9 @@ public class SeatSelectionWindow extends JFrame {
     private JPanel gridPanel;
 
     // Colors
-    private final Color redAccent = new Color(198, 40, 40);     // Red
-    private final Color softBlack = new Color(60, 60, 60);       // Background
-    private final Color lighterBlack = new Color(42, 42, 42);    // Panel
+    private final Color redAccent = new Color(198, 40, 40);     
+    private final Color softBlack = new Color(60, 60, 60);       
+    private final Color lighterBlack = new Color(42, 42, 42);    
     private final Color textWhite = Color.WHITE;
 
     public SeatSelectionWindow(String cinema, String movie) {
@@ -37,6 +37,7 @@ public class SeatSelectionWindow extends JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/cinerush_logo.png")));
+
 
         // Header
         JLabel headerLabel = new JLabel("CineRush", SwingConstants.CENTER);
@@ -259,6 +260,7 @@ public class SeatSelectionWindow extends JFrame {
             int change = payment - total;
             changeLabel.setText("₱" + change);
             saveBookingToDatabase(name, cinema, getSelectedSeatsString(), total, payment, change);
+            new ReceiptDialog(this, name, getSelectedSeatsString(), total, payment, change, cinema, movie, selectedSchedule);
             JOptionPane.showMessageDialog(this, "Transaction successful!\nThank you, " + name + "!");
             dispose();
         } catch (NumberFormatException e) {
@@ -284,7 +286,6 @@ public class SeatSelectionWindow extends JFrame {
         }
     }
 
-    
 
     private String getSelectedSeatsString() {
         StringBuilder seats = new StringBuilder();
@@ -292,19 +293,6 @@ public class SeatSelectionWindow extends JFrame {
             seats.append(btn.getText()).append(" ");
         }
         return seats.toString().trim();
-    }
-
-    // ✅ ADDED: Refresh and initialize seat grid
-    public void refreshSeatGrid() {
-        initSeatGrid();
-        updateSeatAvailability();
-    }
-
-    private void initSeatGrid() {
-        gridPanel.removeAll();
-        setupSeatButtons(gridPanel);
-        gridPanel.revalidate();
-        gridPanel.repaint();
     }
 
     public static void main(String[] args) {

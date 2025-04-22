@@ -12,9 +12,9 @@ public class MovieScheduleAdminPanel extends JFrame {
     private JComboBox<String>[] ampmBoxes;
 
     // Updated color scheme with red and black
-    private final Color bgColor = new Color(0x1F1F1F);  // Dark background
-    private final Color textWhite = new Color(0xF9FAFB); // White text
-    private final Color accentRed = new Color(0x991B1B); // Red accents
+    private final Color bgColor = new Color(0x1F1F1F);  
+    private final Color textWhite = new Color(0xF9FAFB); 
+    private final Color accentRed = new Color(0x991B1B); 
     private final Font labelFont = new Font("Segoe UI", Font.PLAIN, 15);
     private final Font buttonFont = new Font("Segoe UI", Font.PLAIN, 15);
 
@@ -143,12 +143,12 @@ public class MovieScheduleAdminPanel extends JFrame {
         button.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                button.setBackground(new Color(0x7B1F1F)); // Darker red when hovered
+                button.setBackground(new Color(0x7B1F1F)); 
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                button.setBackground(accentRed); // Original red when mouse exits
+                button.setBackground(accentRed); 
             }
         });
 
